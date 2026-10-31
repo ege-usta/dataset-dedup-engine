@@ -1,0 +1,30 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "rowType": { "type": "string", "enum": ["cleaned", "duplicate", "rejected", "summary"] },
+      "sourceIndex": { "type": "integer" },
+      "duplicateOf": { "type": "integer" },
+      "matchType": { "type": "string" },
+      "similarity": { "type": "number" },
+      "reason": { "type": "string" },
+      "originalRowCount": { "type": "integer" },
+      "cleanedRowCount": { "type": "integer" },
+      "duplicatesRemoved": { "type": "integer" },
+      "qualityScore": { "type": "integer" },
+      "completenessScore": { "type": "number" },
+      "inconsistentFields": { "type": "array" }
+    },
+    "required": ["rowType"],
+    "additionalProperties": true
+  },
+  "views": {
+    "results": {
+      "title": "Cleaned rows and issues",
+      "transformation": { "fields": ["rowType", "cleanIndex", "sourceIndex", "duplicateOf", "matchType", "similarity", "reason", "originalRowCount", "cleanedRowCount", "duplicatesRemoved", "invalidEmailFormats", "missingValues", "qualityScore", "completenessScore", "inconsistentFields"] },
+      "display": { "component": "table", "properties": { "similarity": { "label": "Similarity", "format": "number" }, "qualityScore": { "label": "Quality", "format": "number" }, "completenessScore": { "label": "Completeness", "format": "number" } } }
+    }
+  }
+}

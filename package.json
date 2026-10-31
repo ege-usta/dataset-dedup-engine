@@ -1,0 +1,23 @@
+{
+  "name": "dataset-quality-deduplication-engine",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "start:prod": "tsx src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "clean": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "apify": "^3.7.2",
+    "tsx": "^4.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5"
+  },
+  "description": "Deduplicate and quality-check JSON datasets: exact + bounded fuzzy matching, URL normalization, completeness and type checks.",
+  "license": "MIT"
+}

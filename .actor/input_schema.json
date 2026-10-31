@@ -1,0 +1,125 @@
+{
+  "title": "Dataset Quality & Deduplication Engine",
+  "description": "Clean and deduplicate JSON records or an Apify dataset. Charged per input row analyzed. Free plans: up to 100 input rows per run.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "records": {
+      "title": "Records",
+      "type": "array",
+      "description": "Paste JSON objects or use datasetId.",
+      "editor": "json",
+      "prefill": [
+        {
+          "name": " Acme  ",
+          "url": "https://example.com/product/?utm_source=demo",
+          "email": "info@example.com"
+        },
+        {
+          "name": "acme",
+          "url": "https://example.com/product/",
+          "email": "info@example.com"
+        }
+      ]
+    },
+    "datasetId": {
+      "title": "Or Apify dataset ID/name",
+      "type": "string",
+      "description": "Read records from an accessible Apify dataset when pasted records are absent.",
+      "editor": "textfield"
+    },
+    "keyFields": {
+      "title": "Duplicate key fields",
+      "type": "array",
+      "description": "Leave empty to compare all non-ignored fields.",
+      "editor": "json",
+      "default": []
+    },
+    "ignoreFields": {
+      "title": "Fields ignored for duplicates",
+      "type": "array",
+      "description": "Exclude volatile fields such as timestamps from duplicate signatures.",
+      "editor": "json",
+      "default": [
+        "scrapedAt"
+      ]
+    },
+    "fuzzyThreshold": {
+      "title": "Fuzzy similarity threshold",
+      "type": "number",
+      "description": "1 disables fuzzy matches; 0.90 is conservative.",
+      "default": 0.9,
+      "minimum": 0.7,
+      "maximum": 1
+    },
+    "normalizeCase": {
+      "title": "Normalize text case",
+      "type": "boolean",
+      "description": "Lowercase non-URL strings before duplicate comparison.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "trimWhitespace": {
+      "title": "Normalize whitespace",
+      "type": "boolean",
+      "description": "Trim strings and collapse repeated whitespace before analysis.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "normalizeUrls": {
+      "title": "Normalize URLs",
+      "type": "boolean",
+      "description": "Removes fragments and common tracking parameters; sorts remaining query parameters.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "removeEmptyStrings": {
+      "title": "Convert empty strings to null",
+      "type": "boolean",
+      "description": "Represent blank text consistently as null in cleaned rows.",
+      "default": false,
+      "editor": "checkbox"
+    },
+    "validateEmailFormat": {
+      "title": "Validate email format",
+      "type": "boolean",
+      "description": "Syntax only. No mailbox lookup, enrichment, or harvesting.",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "outputMode": {
+      "title": "Output mode",
+      "type": "string",
+      "description": "Choose whether the dataset includes cleaned rows, detailed issue rows, or only the summary.",
+      "editor": "select",
+      "enum": [
+        "cleaned_and_issues",
+        "cleaned_only",
+        "summary_only"
+      ],
+      "enumTitles": [
+        "Cleaned rows + issue rows",
+        "Cleaned rows only",
+        "Summary only"
+      ],
+      "default": "cleaned_and_issues"
+    },
+    "maxRows": {
+      "title": "Maximum rows",
+      "type": "integer",
+      "description": "Hard cap on input records analyzed in one run.",
+      "default": 5000,
+      "minimum": 1,
+      "maximum": 20000
+    },
+    "maxComparisons": {
+      "title": "Maximum fuzzy comparisons",
+      "type": "integer",
+      "description": "Hard compute cap; exact duplicate detection continues after the cap.",
+      "default": 100000,
+      "minimum": 1000,
+      "maximum": 1000000
+    }
+  },
+  "required": []
+}

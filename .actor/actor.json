@@ -1,0 +1,20 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "dataset-quality-deduplication-engine",
+  "title": "Dataset Cleaner & Deduplicator | JSON Data QA",
+  "description": "Clean JSON records and Apify datasets with exact and bounded fuzzy deduplication. Normalize text and URLs, detect missing fields and email-format issues, and export cleaned records, duplicates and a quality summary.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "changelog": "../CHANGELOG.md",
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "minMemoryMbytes": 256,
+  "defaultMemoryMbytes": 256,
+  "maxMemoryMbytes": 2048
+}

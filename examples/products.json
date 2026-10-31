@@ -1,0 +1,7 @@
+[
+  { "title": "Wireless Mouse M185", "url": "https://shop.example.com/p/m185/?utm_source=newsletter", "price": 19.99, "scrapedAt": "2026-10-01" },
+  { "title": "wireless mouse  M185 ", "url": "https://shop.example.com/p/m185", "price": 19.99, "scrapedAt": "2026-10-02" },
+  { "title": "Mechanical Keyboard K2", "url": "https://shop.example.com/p/k2", "price": "79", "scrapedAt": "2026-10-01" },
+  { "title": "USB-C Hub 7 in 1", "url": "https://shop.example.com/p/hub7", "price": null, "scrapedAt": "2026-10-01" },
+  "not a record"
+]

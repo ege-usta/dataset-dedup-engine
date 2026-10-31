@@ -1,0 +1,6 @@
+{
+  "$schema": "https://apify-projects.github.io/actor-json-schemas/output.json?v=0.3",
+  "actorOutputSchemaVersion": 1,
+  "title": "Dataset quality output",
+  "properties": { "results": { "type": "string", "title": "Cleaned data and quality report", "template": "{{links.apiDefaultDatasetUrl}}/items?view=results" } }
+}
